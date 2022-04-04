@@ -7,7 +7,7 @@ export const SelectField = ({ label, value, setValue, options, optionValueKey, o
         value={value}
         onChange={event => setValue(event.target.value)}>
             { <option></option> } 
-            { options.map((x) => <option value={x.value} >{x.label}</option>) }
+            { options.map((x) => <option key= { x.value } value={x.value} >{x.label}</option>) }
     </select>
 </div>;
 }

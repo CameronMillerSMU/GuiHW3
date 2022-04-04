@@ -6,6 +6,7 @@ import { Rating } from "../common/"
 
 export const ReviewForm = () => {
     const [ rating, setRating ] = useState(0);
+    const [ name, setName ] = useState("");
     let options = [
         { value: 1, label: '1 stars' },
         { value: 2, label: '2 stars' },
@@ -17,7 +18,10 @@ export const ReviewForm = () => {
     <div class="reviewForm">
         <h3 class="reviewFormTitle">Add Review</h3>
         <form>
-            <TextField/>
+            <TextField
+            value = { name }
+            setValue = { setName }
+            />
             <SelectField 
             options = {options}
             value = { rating }
