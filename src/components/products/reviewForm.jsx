@@ -1,21 +1,43 @@
-export const ReviewForm = () => {
+import { useEffect, useState } from "react";
+import { Rating } from "../common/rating";
+import { TextField } from "../common/textField";
+import { SelectField } from "../common/selectField";
+
+export const ReviewForm = ({onReviewAdded}) => {
+    let options = [
+        { value: 1, label: '1 stars'},
+        { value: 2, label: '2 stars' },
+        { value: 3, label: '3 stars' },
+        { value: 4, label: '4 stars' },
+        { value: 5, label: '5 stars' }
+   ] 
+
+   const [name, setName] = useState('');
+   const [rating, setRating] = useState(0);
+
+    // useEffect(() => {
+    //     getProductById(1).then(x => setProduct(x));
+    // }, []);
+    let value1 = 0;
+
     return <>
-    <div class="reviewForm">
-        <h3 class="reviewFormTitle">Add Review</h3>
+        <h1>Add Review</h1>
         <form>
-            <label for="name">Your Name</label>
-            <input type="text" name="name" label="name"/>
-            <select name="rating" label="Rating">
-                <option></option>
-                <option value="1">1 Star</option>
-                <option value="2">2 Stars</option>
-                <option value="3">3 Stars</option>
-                <option value="4">4 Stars</option>
-                <option value="5">5 Stars</option>
-            </select>
+            <TextField 
+                label = "Name"
+                value = {name}
+                setValue={setName}
+                />
+            <SelectField 
+                label="Rating"
+                value={rating}
+                setValue={setRating}
+                options={options}/>
+            <div>
+                <Rating value = {value1}/>
+            </div>
             <textarea></textarea>
             <button type="submit">Submit</button>
         </form>
-    </div>
     </>
 }

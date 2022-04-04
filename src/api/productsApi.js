@@ -3,10 +3,9 @@ import axios from 'axios';
 const apiEndpoint = 'https://api.johnlawrimore.com/store/products';
 const apiConfig = {
     headers: {
-        Authorization: 'cmiller'
+        Authorization: 'pclemmons'
     }
 };
-
 
 export const getProductById = (id) => new Promise((resolve, reject) => {
     axios.get(`${apiEndpoint}/${id}`, apiConfig)

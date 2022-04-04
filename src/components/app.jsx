@@ -1,8 +1,7 @@
-import { ProductDetails } from "./products/productDetails";
+import { ProductDetails } from "./products/productDetails"
 
 export const App = () => {
-  return <>
-    <ProductDetails />
-  </>;
+    return <>
+        <ProductDetails />
+    </>;
 }
-

@@ -1,8 +1,15 @@
-export class Product {
-    constructor(id, name, desription, price, imageUrl, reviews) {
+// id
+// name
+// description
+// price
+// imageUrl
+// reviews
+
+export class product {
+    constructor(id, name, description, price, imageUrl, reviews) {
         this.id = id;
         this.name = name;
-        this.desription = desription;
+        this.description = description;
         this.price = price;
         this.imageUrl = imageUrl;
         this.reviews = reviews;

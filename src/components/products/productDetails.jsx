@@ -4,8 +4,7 @@ import { ReviewForm } from "./reviewForm";
 import { ReviewList } from "./reviewList";
 
 export const ProductDetails = () => {
-
-    const [ product, setProduct ] = useState([]);
+    const [product, setProduct] = useState([]);
 
     useEffect(() => {
         getProductById(1).then(x => setProduct(x));
@@ -13,18 +12,21 @@ export const ProductDetails = () => {
 
     return <>
     <ul class="breadcrumb">
-        <li> Tasty Snacks </li>
-        <li> { product.name } </li>
+        <li>Tasty Snacks</li>
+        <li>{product.name}</li>
     </ul>
-    <ul class="jumbotron">
-        <img class="productImage" src = { product.imageUrl }/>
-        <div class="textStuff">
-            <h1> { product.name } </h1>
-            <h2><span class = "badge"> { product.price } </span></h2>
-            <h4> { product.description } </h4>
-        </div>
-    </ul>
-    <ReviewForm/>
+
+    <div class="jumbotron">
+        <img src={product.imageUrl} alt={product.name} />
+        <h1>
+            {product.name}
+            <span class="badge badge-secondary">${product.price}</span>
+        </h1>
+        <p>{product.description}</p>
+    </div>
+
     <ReviewList/>
-    </>;
+    <ReviewForm/>
+    
+    </>
 }
