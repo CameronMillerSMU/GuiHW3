@@ -1,4 +1,4 @@
-export const SelectField = ({ label, value, setValue, options,  optionValueKey, optionLabelKey}) => {
+export const SelectField = ({ label, value, setValue, options, }) => {
     
     
     
@@ -11,7 +11,7 @@ export const SelectField = ({ label, value, setValue, options,  optionValueKey, 
         onChange={event => setValue(event.target.value)}>
             { <option></option> }
             {
-                options.map((x) => <option value={x.value}>{x.label}</option>)
+                options.map((x) => <option key={x.value} value={x.value}>{x.label}</option>)
             }
     </select>
 </div>;

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Rating } from "../common/rating";
 import { TextField } from "../common/textField";
 import { SelectField } from "../common/selectField";
+import { TextAreaField } from "../common/textAreaField";
 
 export const ReviewForm = ({onReviewAdded}) => {
     let options = [
@@ -13,6 +14,7 @@ export const ReviewForm = ({onReviewAdded}) => {
    ] 
 
    const [name, setName] = useState('');
+   const [review, setReview] = useState('');
    const [rating, setRating] = useState(0);
 
     // useEffect(() => {
@@ -34,9 +36,13 @@ export const ReviewForm = ({onReviewAdded}) => {
                 setValue={setRating}
                 options={options}/>
             <div>
-                <Rating value = {value1}/>
+                <Rating value = {rating}/>
             </div>
-            <textarea></textarea>
+            <TextAreaField
+                label="Review"
+                value={review}
+                setValue={setReview}
+                />
             <button type="submit">Submit</button>
         </form>
     </>
