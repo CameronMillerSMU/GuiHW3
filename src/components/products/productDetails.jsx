@@ -3,23 +3,22 @@ import { getProductById } from "../../api/productsApi";
 import { ProductReview } from "../../models/productReview";
 import { ReviewForm } from "./reviewForm";
 import { ReviewList } from "./reviewList";
+import { Product } from "../../models/product";
 
 export const ProductDetails = () => {
 
-    const [ product, setProduct ] = useState([]);
+    const [product, setProduct] = useState(new Product(0, '', '', 0, '', []));
 
     useEffect(() => {
         getProductById(1).then(x => setProduct(x));
-    }, [product]);
+    }, []);
 
-    
-
-    const onReviewAdded = (name, rating, comment, date) =>{
-        let productClone = product;        
-        productClone.reviews.push(new ProductReview(name, rating, comment, date));
+    function onReviewAdded(name, rating, comment, date) {
+        var productClone = { ...product };
+        var newReview = new ProductReview(name, rating, comment, date);
+        productClone.reviews.push(newReview);
         setProduct(productClone);
-        console.log("Added review " , name, " " , product.reviews.length);
-    }
+      }
 
     return <>
     <ul class="breadcrumb">
