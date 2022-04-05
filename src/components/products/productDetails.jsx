@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getProductById } from "../../api/productsApi";
+import { ProductReview } from "../../models/productReview";
 import { ReviewForm } from "./reviewForm";
 import { ReviewList } from "./reviewList";
 
@@ -10,6 +11,13 @@ export const ProductDetails = () => {
     useEffect(() => {
         getProductById(1).then(x => setProduct(x));
     }, []);
+
+    const onReviewAdded = (name, rating, comment, date) =>{
+        console.log("Adding review " , name);
+        let productClone = product;
+        console.log(product.reviews.length);
+        console.log(productClone.reviews.length);
+    }
 
     return <>
     <ul class="breadcrumb">
@@ -24,7 +32,8 @@ export const ProductDetails = () => {
             <h4> { product.description } </h4>
         </div>
     </ul>
-    <ReviewForm/>
-    <ReviewList/>
+    <ReviewList reviews={product.reviews}/>
+    <ReviewForm onReviewAdded={onReviewAdded}/>
+    
     </>;
 }

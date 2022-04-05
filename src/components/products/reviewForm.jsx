@@ -3,11 +3,12 @@ import { TextField } from "../common/"
 import { TextAreaField } from "../common/"
 import { SelectField } from "../common/"
 import { Rating } from "../common/"
+import { ProductDetails } from "./productDetails";
 
-export const ReviewForm = () => {
+export const ReviewForm = ({onReviewAdded}) => {
     const [ rating, setRating ] = useState(0);
     const [ name, setName ] = useState("");
-    const [ comment, setComment ] = useState("");
+    const [ comment, setComment] = useState("");
     let options = [
         { value: 1, label: '1 stars' },
         { value: 2, label: '2 stars' },
@@ -25,13 +26,16 @@ export const ReviewForm = () => {
             />
             <SelectField 
             options = {options}
-            value = { rating }
+            value = { rating  }
             setValue = { setRating }
             />
             <div>
                 <Rating value = { rating } />
             </div>
-            <TextAreaField value="comment"/>
+            <TextAreaField
+            value = {comment}
+            setValue = {setComment}
+            />
             <button type="Button" 
                 onClick={() => {
                     onReviewAdded(name, rating, comment, new Date().toDateString())
