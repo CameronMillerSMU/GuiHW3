@@ -14,12 +14,9 @@ export const ProductDetails = () => {
 
     const onReviewAdded = (name, rating, comment, date) =>{
         console.log("Adding review " , name);
-        if(product.reviews){
-            let newReview = new ProductReview(name, rating, comment, date);
-            let productClone = product.clone;
-            productClone.reviews.concat(newReview);
-            setProduct(productClone)
-        }
+        let productClone = product;
+        console.log(product.reviews.length);
+        console.log(productClone.reviews.length);
     }
 
     return <>
