@@ -7,6 +7,7 @@ import { Rating } from "../common/"
 export const ReviewForm = () => {
     const [ rating, setRating ] = useState(0);
     const [ name, setName ] = useState("");
+    const [ comment, setComment ] = useState("");
     let options = [
         { value: 1, label: '1 stars' },
         { value: 2, label: '2 stars' },
@@ -30,8 +31,17 @@ export const ReviewForm = () => {
             <div>
                 <Rating value = { rating } />
             </div>
-            <TextAreaField/>
-            <button type="submit">Submit</button>
+            <TextAreaField value="comment"/>
+            <button type="Button" 
+                onClick={() => {
+                    onReviewAdded(name, rating, comment, new Date().toDateString())
+                    setName('');
+                    setRating(0);
+                    setComment('');
+                }
+            }>
+                Submit
+            </button>
         </form>
     </div>
     </>
