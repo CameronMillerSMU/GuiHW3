@@ -6,9 +6,8 @@ import { ReviewList } from "./reviewList";
 export const ProductDetails = () => {
     const [product, setProduct] = useState([]);
 
-    useEffect(() => {
-        getProductById(1).then(x => setProduct(x));
-    }, []);
+    useEffect(() => {});
+    getProductById(1).then(x => setProduct(x));
 
     return <>
     <ul class="breadcrumb">
