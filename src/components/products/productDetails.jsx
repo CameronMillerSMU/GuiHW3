@@ -10,7 +10,16 @@ export const ProductDetails = () => {
 
     useEffect(() => {
         getProductById(1).then(x => setProduct(x));
-    }, []);
+    }, [product]);
+
+    
+
+    const onReviewAdded = (name, rating, comment, date) =>{
+        let productClone = product;        
+        productClone.reviews.push(new ProductReview(name, rating, comment, date));
+        setProduct(productClone);
+        console.log("Added review " , name, " " , product.reviews.length);
+    }
 
     const onReviewAdded = (name, rating, comment, date) =>{
         console.log("Adding review " , name);
