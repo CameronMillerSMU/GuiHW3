@@ -26,7 +26,7 @@ export const ReviewForm = ({onReviewAdded}) => {
             />
             <SelectField 
             options = {options}
-            value = { rating }
+            value = { rating  }
             setValue = { setRating }
             />
             <div>
