@@ -4,7 +4,7 @@ import { Rating } from "../common";
 
 export const ReviewList = ({reviews}) => {
 
-    const renderCard = (card, index) => {
+    const renderCard = (card) => {
         return(
          <Card>
              <div class="reviewCard">
@@ -25,7 +25,8 @@ export const ReviewList = ({reviews}) => {
                 {reviews.length === 0 &&
                     <h3>Be the first to add a review!</h3>
                 }
-                {reviews.map(renderCard)}
+                {/* {console.log(reviews.length)} */}
+                {reviews.map((review) => renderCard(review))}
 
             </div>           
         </div>
